@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Welcome to ABC College{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    .hero-banner {
+        background-image: url("{% static 'images/banner.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0;
+        text-align: center;
+        color: white;
+    }
+
+    .hero-banner h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-banner p {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+
+    .features-section {
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .feature-box {
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    .feature-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .events-section {
+        padding: 50px 0;
+        background-color: #343a40;
+        color: white;
+    }
+
+    .event {
+        padding: 20px;
+        background-color: #495057;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .event h4 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .footer {
+        padding: 20px 0;
+        background-color: #212529;
+        color: white;
+        text-align: center;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+</style>
+
+<div class="hero-banner">
+    <h1>Welcome to ABC College</h1>
+    <p>Empowering the Leaders of Tomorrow</p>
+    <a href="#" class="btn btn-primary">Learn More About Us</a>
+</div>
+
+<div class="container features-section">
+    <h2 class="mb-4">Why Choose ABC College?</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h3>World-Class Faculty</h3>
+                <p>Learn from the best in the industry, our faculty members are world-renowned experts.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h3>State-of-the-Art Facilities</h3>
+                <p>Experience top-notch facilities including modern labs, libraries, and sports centers.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-box">
+                <h3>Diverse Community</h3>
+                <p>Join a vibrant community of students from all over the world and grow together.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .chat-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: 300px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .message {
+            margin-bottom: 15px;
+        }
+        .user-message {
+            color: #007bff;
+        }
+        .bot-response {
+            color: #28a745;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <div class="container">
+        <h2>Chatbot</h2>
+        <div class="chat-box" id="chat-box">
+            <div class="message bot-response bg-info-subtle p-2 px-4 rounded-4">
+                <strong class="text-success">Bot: </strong>Welcome to ABC College Chatbot. <br>How can I Help You ?
+            </div>
+            {% for chat in chat_history %}
+                <div class="message user-message  bg-danger-subtle p-2 px-4 rounded-4">
+                    <strong>You: </strong> {{ chat.message }}
+                </div>
+                <div class="message bot-response bg-info-subtle p-2 px-4 rounded-4">
+                    
+                    <strong>Bot: </strong> {{ chat.response }}
+                    
+                  
+                </div>
+            {% endfor %}
+        </div>
+        <div class="form-container">
+            <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                <input type="text" name="message" placeholder="Type your message" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <script>
+         var chatBox = document.getElementById('chat-box');
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Smooth scroll effect when new messages are added
+    chatBox.addEventListener('DOMNodeInserted', function(event) {
+        chatBox.scroll({
+            top: chatBox.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+    
+
+{% endblock %}

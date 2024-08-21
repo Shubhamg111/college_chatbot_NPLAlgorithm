@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2 class="text-success">Edit Profile</h2>
+        <hr>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.first_name.label_tag }}<br>
+                {{ form.first_name }}<br>
+                {{ form.first_name.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.last_name.label_tag }}<br>
+                {{ form.last_name }}<br>
+                {{ form.last_name.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }}<br>
+                {{ form.email }}<br>
+                {{ form.email.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.phone_number.label_tag }}<br>
+                {{ form.phone_number }}<br>
+                {{ form.phone_number.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.address.label_tag }}<br>
+                {{ form.address }}<br>
+                {{ form.address.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.date_of_birth.label_tag }}<br>
+                {{ form.date_of_birth }}<br>
+                {{ form.date_of_birth.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.profile_picture.label_tag }}<br>
+                {{ form.profile_picture }}<br>
+                {{ form.profile_picture.errors }}
+            </div>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </form>
+    
+    </div>
+{% endblock %}

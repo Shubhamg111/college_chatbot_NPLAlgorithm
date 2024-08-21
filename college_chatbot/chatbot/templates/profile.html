@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-5 shadow p-4">
+            <h2 class="text-success">Profile</h2>
+            <hr>
+            <div class="d-flex justify-content-evenly align-items-center">
+                
+                    {% if user.profile_picture %}
+                    <img src="{{ user.profile_picture.url }}" alt="Profile Picture"
+                        style="max-width: 150px;border-radius: 50%;height: 150px;">
+                    {% else %}
+                    No profile picture
+                    {% endif %}
+                
+                
+                <h1 class="display-4">{{ user.username.upper}}</h1>
+            
+            </div>
+            <hr>
+            <p class="fw-bold">Email: <span class="text-secondary fw-light ">{{ user.email }}</span> </p>
+            <p class="fw-bold">First Name:<span class="text-secondary fw-light"> {{ user.first_name }}</span></p>
+            <p class="fw-bold">Last Name:<span class="text-secondary fw-light"> {{ user.last_name }}</span></p>
+            <p class="fw-bold">Phone Number:<span class="text-secondary fw-light"> {{ user.phone_number }}</span></p>
+            <p class="fw-bold">Address:<span class="text-secondary fw-light"> {{ user.address }}</span></p>
+            <p class="fw-bold">Date of Birth:<span class="text-secondary fw-light"> {{ user.date_of_birth }}</span></p>
+        
+            <a href="{% url 'profile_edit' %}" class="btn btn-success">Edit Profile</a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
