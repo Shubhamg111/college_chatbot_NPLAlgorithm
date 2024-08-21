@@ -39,13 +39,14 @@
             display: flex;
             justify-content: center;
             margin-top: 10px;
+            background: #000;
         }
         input[type="text"] {
-            flex: 1;
+            /* flex: 1; */
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            margin-right: 10px;
+            /* margin-right: 10px; */
         }
         button {
             padding: 10px 20px;
@@ -81,7 +82,7 @@
         <div class="form-container">
             <form method="POST" autocomplete="off">
                 {% csrf_token %}
-                <input type="text" name="message" placeholder="Type your message" required>
+                <input type="text" class="w-50" name="message" placeholder="Type your message" required>
                 <button type="submit">Send</button>
             </form>
         </div>
